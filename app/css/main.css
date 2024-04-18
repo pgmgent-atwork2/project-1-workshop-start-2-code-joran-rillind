@@ -1,0 +1,39 @@
+BODY {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.box-1 {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 10rem;
+    height: 20rem;
+    background-color: orange;
+}
+
+.box-2 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 10rem;
+    height: 20rem;
+    background-color: orange;
+}
+
+.box-3 {
+    position: absolute;
+    top: 60%;
+    left: 70%;
+    width: 5rem;
+    height: 15rem;
+    background-color: orange;
+}
