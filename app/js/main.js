@@ -62,8 +62,7 @@ function movePipe(pipe) {
 
 function gameOver() {
     isGameOver = true;
-    alert('Game Over!');
-    resetGame();
+    window.location.href = "startScreen.html";
 }
 
 function resetGame() {
@@ -77,3 +76,5 @@ function resetGame() {
 movePipe(pipe1);
 movePipe(pipe2);
 gameLoop();
+
+

@@ -26,7 +26,7 @@ body {
 
 #pipe1 {
     width: 80px;
-    height: 350px;
+    height: 250px;
     background-color: green;
     position: absolute;
     top: 0;
@@ -35,9 +35,70 @@ body {
 
 #pipe2 {
     width: 80px;
-    height: 350px;
+    height: 250px;
     background-color: green;
     position: absolute;
     bottom: 0;
     left: 400px;
+}
+
+.start-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+}
+
+.start-section {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../assets/img/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.start-screen h1 {
+    font-size: 7rem;
+    text-decoration: underline;
+    text-decoration-color: #FBBB18;
+}
+
+.button {
+    background-color: black;
+    padding: .5rem 1rem;
+    border-radius: .75rem;
+}
+
+.button a {
+    text-decoration: none;
+    color: #D70029;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.button:hover a {
+    color: black;
+    transition: .2s;
+}
+
+.button:hover {
+    background-color: #D70029;
+    transition: .2s;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: fantasy;
+    color: #D70029;
+}
+
+.logo img {
+    width: 250px;
+    height: 250px;
 }
