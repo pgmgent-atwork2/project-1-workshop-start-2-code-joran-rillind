@@ -1,39 +1,32 @@
-BODY {
-    position: relative;
+body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: hidden; /* Voorkomt scrollen */
 }
 
-img {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-}
-
-.box-1 {
+#game-container {
+    background-color: black;
     position: absolute;
-    top: 60%;
-    left: 50%;
-    width: 10rem;
-    height: 20rem;
-    background-color: orange;
+    width: 100vw; /* 100% van de viewport breedte */
+    height: 100vh; /* 100% van de viewport hoogte */
+    border: none; /* Geen rand nodig */
 }
 
-.box-2 {
+#bird {
+    width: 40px;
+    height: 40px;
+    background-color: yellow;
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    transform: translateY(-50%);
+}
+
+#pipe {
+    width: 80px;
+    height: 300px;
+    background-color: green;
     position: absolute;
     top: 0;
-    left: 50%;
-    width: 10rem;
-    height: 20rem;
-    background-color: orange;
-}
-
-.box-3 {
-    position: absolute;
-    top: 60%;
-    left: 70%;
-    width: 5rem;
-    height: 15rem;
-    background-color: orange;
+    left: 400px;
 }
