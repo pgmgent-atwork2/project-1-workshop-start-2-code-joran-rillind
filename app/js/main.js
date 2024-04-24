@@ -1,91 +1,132 @@
-const bird = document.getElementById('bird');
-const pipe1 = document.getElementById('pipe1');
-const pipe2 = document.getElementById('pipe2');
+// Selecting elements
+const bird = document.getElementById("bird");
+const pipes = [
+  document.getElementById("pipe1"),
+  document.getElementById("pipe2"),
+];
 const pointsDisplay = document.querySelector(".points");
 
-document.addEventListener('keydown', (event) => {
-    if (event.code === 'Space') {
-        flap();
-    }
-});
-
-let isJumping = false;
-let isGameOver = false;
-let gameSpeed = 15;
-let pipeLeft = 1500;
-let gravity = 0.2;
+// Game parameters
+const gravity = 0.08;
 let velocity = 0;
 let position = 250;
 let points = 0;
+let isGameOver = false;
 
+// Event listener for space key
+document.addEventListener("keydown", (event) => {
+  if (event.code === "Space" && !isGameOver) {
+    flap();
+  }
+});
+
+// Flap function
 function flap() {
-    velocity = -5;
+  velocity = -5;
 }
 
+// Game loop
 function gameLoop() {
+  if (!isGameOver) {
     velocity += gravity;
     position += velocity;
-    if (position >= 875) {
-        position = 875;
-        velocity = 0;
-        isJumping = false;
-    }
-    bird.style.top = position + 'px';
 
-    if (isColliding(bird, pipe1) || isColliding(bird, pipe2) || position === 875 || position === 0) {
-        gameOver();
-    }
-    
-    if (pipeLeft === 0) {
-        points++;
-        pointsDisplay.innerHTML = `<h1>Points: ${points} </h1>`; 
+    // Bird position constraints
+    if (position >= 875 || position <= 0) {
+      position = Math.max(Math.min(position, 875), 0);
+      velocity = 0;
+      gameOver(); 
     }
 
-    requestAnimationFrame(gameLoop);
-}
+    bird.style.top = position + "px";
 
-function isColliding(element1, element2) {
-    const rect1 = element1.getBoundingClientRect();
-    const rect2 = element2.getBoundingClientRect();
-    const margin = 5; 
+    // Collision detection
+    if (pipes.some((pipe) => isColliding(bird, pipe))) {
+      gameOver();
+      return;
+    }
 
-    return !(
-        rect1.bottom - margin < rect2.top ||
-        rect1.top + margin > rect2.bottom ||
-        rect1.right - margin < rect2.left ||
-        rect1.left + margin > rect2.right
-    );
-}
-
-
-function movePipe(pipe) {
-    let pipeInterval = setInterval(() => {
-        if (pipeLeft < -80) {
-            pipeLeft = 1500;
-            pipe.style.height = Math.floor(Math.random() * 200) + 100 + 'px'; 
-        } else {
-            pipeLeft -= 5;
-            pipe.style.left = pipeLeft + 'px';
+    // Scoring
+    let passedBothPipes = false;
+    pipes.forEach((pipe, index) => {
+      if (!pipe.passed && isPassing(pipe)) {
+        pipe.passed = true;
+        if (index % 2 === 0 && !passedBothPipes) {
+          passedBothPipes = true;
+        } else if (index % 2 !== 0 && passedBothPipes) {
+          points++;
+          updatePointsDisplay();
+          passedBothPipes = false;
         }
-    }, gameSpeed);
+      }
+    });
+  }
+  requestAnimationFrame(gameLoop);
 }
 
+// Collision detection function
+function isColliding(element1, element2) {
+  const rect1 = element1.getBoundingClientRect();
+  const rect2 = element2.getBoundingClientRect();
+  return !(
+    rect1.bottom < rect2.top ||
+    rect1.top > rect2.bottom ||
+    rect1.right < rect2.left ||
+    rect1.left > rect2.right
+  );
+}
+
+// Check if bird passes a pipe
+function isPassing(pipe) {
+  const birdRect = bird.getBoundingClientRect();
+  const pipeRect = pipe.getBoundingClientRect();
+  return (
+    birdRect.right > pipeRect.left &&
+    birdRect.left < pipeRect.left &&
+    !isGameOver
+  );
+}
+
+// Move pipes
+function movePipe(pipe) {
+  let pipeRight = 1500;
+  const pipeHeight = () => Math.floor(Math.random() * 200) + 230;
+  pipe.passed = false; 
+  setInterval(() => {
+    if (!isGameOver) {
+      if (pipeRight < -80) {
+        pipeRight = 1500;
+        pipe.style.height = pipeHeight() + "px";
+        pipe.passed = false; 
+      } else {
+        pipeRight -= 5;
+        pipe.style.left = pipeRight + "px";
+      }
+    }
+  }, 10);
+}
+
+// Game over function
 function gameOver() {
-    isGameOver = true;
-    alert("Game over!");
-    window.location.href = "startScreen.html";
+  isGameOver = true;
+  window.location.href = "index.html";
 }
 
+// Reset game function
 function resetGame() {
-    position = 250;
-    velocity = 0;
-    pipeLeft = 1500;
-    bird.style.top = '0px';
-    isGameOver = false;
+  position = 250;
+  velocity = 0;
+  points = 0;
+  updatePointsDisplay();
+  isGameOver = false;
 }
 
-movePipe(pipe1);
-movePipe(pipe2);
+// Update points display
+function updatePointsDisplay() {
+  pointsDisplay.innerHTML = `<h1>Points: ${points}</h1>`;
+}
+
+// Start game
+movePipe(pipes[0]);
+movePipe(pipes[1]);
 gameLoop();
-
-
