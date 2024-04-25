@@ -1,7 +1,8 @@
 body {
-  width: 100%;
+  width: 60%;
   height: 100%;
   background-color: #21252B;
+  margin: 0 auto;
 }
 
 header {
@@ -9,8 +10,19 @@ header {
   padding: 1rem;
 }
 
-ul {
-    width: 50%;
+.introduction-section div {
+  padding-bottom: 2rem;
+}
+
+.introduction-top p {
+  padding-bottom: 1rem;
+}
+
+li {
+  color: white;
+}
+
+.tutorial-section ul {
   list-style-type: none;
   margin: 0 auto;
   padding: 0;
@@ -19,12 +31,13 @@ ul {
   flex-direction: column;
 }
 
-li {
+.tutorial-section li {
     display: flex;
     gap: .5rem;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-bottom: 2rem;
 }
 
 h1 {

@@ -11,352 +11,91 @@
     />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/main.css" />
-    <title>Tutorial FlappyBirth</title>
+    <title>Tutorial Bird Blitz</title>
   </head>
 
   <body>
     <header>
-      <h1>Flappy Birth Tutorial</h1>
+      <h1>Bird Blitz Tutorial</h1>
       <p></p>
     </header>
     <main>
-      <section>
+      <section class="introduction-section">
+        <div class="introduction-top">
+          <p>We gaan een mini game maken genaamd 'Flappy Birth'!</p>
+          <p>
+            In dit spel sturen we een vliegende emoji door obstakels heen terwijl we punten verzamelen. Gebruik de spatiebalk om de emoji te laten vliegen en probeer zo lang mogelijk in de lucht te blijven. Klaar om de uitdaging aan te gaan en de geboorte van een nieuw record te vieren?
+          </p>
+          <img src="../app/assets/img/game.png" alt="Game">
+        </div>
+        <div>
+          <p>Daarvoor hebben we drie codetalen nodig</p>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+      </section>
+      <section class="tutorial-section">
         <ul>
           <li>
-            <h2>Eerste stap</h2>
+            <h2>STAP 1 - MAPPENSTRUCTUUR</h2>
             <p>
-              Je maakt een folder aan met de naam "app" vervolgens maake je een
-              index.html en game.html bestand aan in de root oftewel de app
-              folder. tenlaaste mag er een assets map met daarin een img mapje
-              waar we de achtergrond en de player spirte zullen bewaren css map
-              met daarin het bestand main.css en js mapje met het bestand
-              main.js gemaakt worden in de root (app folder).
+              Je maakt een folder aan met de naam "app". Vervolgens maak je een index.html en game.html bestand aan in de root, oftewel de app folder. Ten slotte mag er een assets map met daarin een img mapje worden gemaakt, waar we de achtergrond en de player sprite zullen bewaren, een css map met daarin het bestand main.css, en een js mapje met het bestand main.js in de root (app folder).
             </p>
             <img src="./assets/img/image.png" alt="folder">
           </li>
           <li>
-            <h2>Tweede stap</h2>
+            <h2>STAP 2 - HTML</h2>
             <p>je opent het index.html bestand en plaatst de volgende code</p>
             <div>
-              <pre>
-                        &lt;!DOCTYPE html&gt;
-                        &lt;html lang="en"&gt;
-                        &lt;head&gt;
-                            &lt;meta charset="UTF-8"&gt;
-                            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-                            &lt;title&gt;Flappy Bird&lt;/title&gt;
-                            &lt;link rel="stylesheet" href="./css/main.css"&gt;
-                        &lt;/head&gt;
-                        &lt;body&gt;
-                            &lt;section class="start-section"&gt;
-                                &lt;div class="start-screen"&gt;
-                                    &lt;div class="logo"&gt;
-                                        &lt;img src="assets/img/player.png" alt="logo"&gt;
-                                        &lt;h1&gt;Bird Blitz&lt;/h1&gt;
-                                    &lt;/div&gt;
-                                    &lt;div class="button"&gt;
-                                        &lt;a href="game.html"&gt;Start Game&lt;/a&gt;
-                                    &lt;/div&gt;
-                                &lt;/div&gt;
-                            &lt;/section&gt;
-                        &lt;/body&gt;
-                        &lt;/html&gt;
-                    </pre
-              >
+              <img src="assets/html1.png" alt="indexHTML">
             </div>
           </li>
           <li>
-            <h2>Derde stap</h2>
             <p>je opent het game.html bestand en plaatst de volgende code</p>
             <div>
-              <pre>
-                    &lt;!DOCTYPE html&gt;
-        &lt;html lang="en"&gt;
-        &lt;head&gt;
-            &lt;meta charset="UTF-8"&gt;
-            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-            &lt;title&gt;Flappy Bird&lt;/title&gt;
-            &lt;link rel="stylesheet" href="./css/main.css"&gt;
-        &lt;/head&gt;
-        &lt;body&gt;
-            &lt;div id="game-container"&gt;
-                &lt;div class="points"&gt;&lt;h1&gt;Points: 0&lt;/h1&gt;&lt;/div&gt;
-                &lt;div id="bird"&gt;&lt;/div&gt;
-                &lt;div id="pipe1"&gt;&lt;/div&gt;
-                &lt;div id="pipe2"&gt;&lt;/div&gt;
-            &lt;/div&gt;
-            &lt;script src="./js/main.js"&gt;&lt;/script&gt;
-        &lt;/body&gt;
-        &lt;/html&gt;
-                </pre
-              >
+              <img src="assets/img/gameHTML.png" alt="gameHTML">
             </div>
           </li>
           <li>
-            <h2>Vierde stap</h2>
+            <h2>STAP 2 - CSS</h2>
             <p>je opent het main.css bestand en plaatst de volgende code</p>
             <div>
-              <pre>
-                    body {
-                        margin: 0;
-                        padding: 0;
-                        overflow: hidden; 
-                    }
-                    
-                    #game-container {
-                        background-image: url('../assets/img/background.png');
-                        background-size: cover;
-                        position: absolute;
-                        width: 100vw; 
-                        height: 100vh;
-                        border: none; 
-                    }
-                    
-                    #bird {
-                        width: 90px;
-                        height: 99px;
-                        background-image: url(../assets/img/player.png);
-                        background-size: cover;
-                        position: absolute;
-                        top: 50%;
-                        left: 50px;
-                        transform: translateY(-50%);
-                        border-radius: 100%;
-                    }
-                    
-                    #pipe1 {
-                        width: 80px;
-                        height: 250px;
-                        background-color: green;
-                        position: absolute;
-                        top: 0;
-                        left: 400px;
-                    }
-                    
-                    #pipe2 {
-                        width: 80px;
-                        height: 250px;
-                        background-color: green;
-                        position: absolute;
-                        bottom: 0;
-                        left: 400px;
-                    }
-                    
-                    .start-screen {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        flex-direction: column;
-                        position: absolute;
-                        z-index: 2;
-                        left: 50%;
-                        top: 25%;
-                        transform: translate(-50%, -50%);
-                    }
-                    
-                    .start-section {
-                        width: 100vw;
-                        height: 100vh;
-                        background-image: url('../assets/img/background.png');
-                        background-repeat: no-repeat;
-                        background-size: cover;
-                    }
-                    
-                    .start-screen h1 {
-                        font-size: 7rem;
-                        text-decoration: underline;
-                        text-decoration-color: #FBBB18;
-                    }
-                    
-                    .button {
-                        background-color: black;
-                        padding: .5rem 1rem;
-                        border-radius: .75rem;
-                    }
-                    
-                    .button a {
-                        text-decoration: none;
-                        color: #D70029;
-                        font-size: 50px;
-                        font-weight: bold;
-                    }
-                    
-                    .button:hover a {
-                        color: black;
-                        transition: .2s;
-                    }
-                    
-                    .button:hover {
-                        background-color: #D70029;
-                        transition: .2s;
-                    }
-                    
-                    .logo {
-                        display: flex;
-                        align-items: center;
-                        font-family: fantasy;
-                        color: #D70029;
-                    }
-                    
-                    .logo img {
-                        width: 250px;
-                        height: 250px;
-                    }
-                    
-                    .points {
-                        display: flex;
-                        justify-content: center;
-                    }
-                </pre
-              >
+              <img src="assets/img/CSS1.png" alt="CSS">
+              <br>
+              <img src="assets/img/CSS2.png" alt="CSS">
+              <br>
+              <img src="assets/img/CSS3.png" alt="CSS">
+              <br>
+              <img src="assets/img/CSS4.png" alt="CSS">
+              <br>
             </div>
           </li>
           <li>
-            <h2>Vijfde stap</h2>
+            <h2>STAP 5 - JavaScript</h2>
             <p>je opent main.js en plaats de volgende code</p>
             <div>
-              <pre>
-                    // Selecting elements
-const bird = document.getElementById("bird");
-const pipes = [
-  document.getElementById("pipe1"),
-  document.getElementById("pipe2"),
-];
-const pointsDisplay = document.querySelector(".points");
-
-// Game parameters
-const gravity = 0.08;
-let velocity = 0;
-let position = 250;
-let points = 0;
-let isGameOver = false;
-
-// Event listener for space key
-document.addEventListener("keydown", (event) => {
-  if (event.code === "Space" && !isGameOver) {
-    flap();
-  }
-});
-
-// Flap function
-function flap() {
-  velocity = -5;
-}
-
-// Game loop
-function gameLoop() {
-  if (!isGameOver) {
-    velocity += gravity;
-    position += velocity;
-
-    // Bird position constraints
-    if (position >= 875 || position <= 0) {
-      position = Math.max(Math.min(position, 875), 0);
-      velocity = 0;
-      gameOver(); 
-    }
-
-    bird.style.top = position + "px";
-
-    // Collision detection
-    if (pipes.some((pipe) => isColliding(bird, pipe))) {
-      gameOver();
-      return;
-    }
-
-    // Scoring
-    let passedBothPipes = false;
-    pipes.forEach((pipe, index) => {
-      if (!pipe.passed && isPassing(pipe)) {
-        pipe.passed = true;
-        if (index % 2 === 0 && !passedBothPipes) {
-          passedBothPipes = true;
-        } else if (index % 2 !== 0 && passedBothPipes) {
-          points++;
-          updatePointsDisplay();
-          passedBothPipes = false;
-        }
-      }
-    });
-  }
-  requestAnimationFrame(gameLoop);
-}
-
-// Collision detection function
-function isColliding(element1, element2) {
-  const rect1 = element1.getBoundingClientRect();
-  const rect2 = element2.getBoundingClientRect();
-  return !(
-    rect1.bottom < rect2.top ||
-    rect1.top > rect2.bottom ||
-    rect1.right < rect2.left ||
-    rect1.left > rect2.right
-  );
-}
-
-// Check if bird passes a pipe
-function isPassing(pipe) {
-  const birdRect = bird.getBoundingClientRect();
-  const pipeRect = pipe.getBoundingClientRect();
-  return (
-    birdRect.right > pipeRect.left &&
-    birdRect.left < pipeRect.left &&
-    !isGameOver
-  );
-}
-
-// Move pipes
-function movePipe(pipe) {
-  let pipeRight = 1500;
-  const pipeHeight = () => Math.floor(Math.random() * 200) + 230;
-  pipe.passed = false; 
-  setInterval(() => {
-    if (!isGameOver) {
-      if (pipeRight < -80) {
-        pipeRight = 1500;
-        pipe.style.height = pipeHeight() + "px";
-        pipe.passed = false; 
-      } else {
-        pipeRight -= 5;
-        pipe.style.left = pipeRight + "px";
-      }
-    }
-  }, 10);
-}
-
-// Game over function
-function gameOver() {
-  isGameOver = true;
-  window.location.href = "index.html";
-}
-
-// Reset game function
-function resetGame() {
-  position = 250;
-  velocity = 0;
-  points = 0;
-  updatePointsDisplay();
-  isGameOver = false;
-}
-
-// Update points display
-function updatePointsDisplay() {
- pointsDisplay.innerHTML = ` &lt;h1&gt; Points: ${points} &lt;/h1&gt;`;
-}
-
-// Start game
-movePipe(pipes[0]);
-movePipe(pipes[1]);
-gameLoop();
-
-                </pre>
+              <img src="assets/img/javascript1.png" alt="JavaScript">
+              <br>
+              <img src="assets/img/javascript2.png" alt="JavaScript">
+              <br>
+              <img src="assets/img/javascript3.png" alt="JavaScript">
+              <br>
+              <img src="assets/img/javascript4.png" alt="JavaScript">
+              <br>
+              <img src="assets/img/javascript5.png" alt="JavaScript">
+              <br>
             </div>
           </li>
           <li>
-            <h2>Zesde stap</h2>
+            <h2>STAP 6 - BACKGROUND</h2>
             <p>
               en dan plaats je een background.png en player.png in de img folder
             </p>
+            <img src="../app/assets/img/background.png" alt="background">
+            <img src="../app/assets/img/player.png" alt="player">
           </li>
         </ul>
       </section>
