@@ -7,7 +7,7 @@ const pipes = [
 const pointsDisplay = document.querySelector(".points");
 
 // Game parameters
-const gravity = 0.08;
+const gravity = 0.15;
 let velocity = 0;
 let position = 250;
 let points = 0;
@@ -22,7 +22,7 @@ document.addEventListener("keydown", (event) => {
 
 // Flap function
 function flap() {
-  velocity = -5;
+  velocity = -4;
 }
 
 // Game loop
@@ -90,7 +90,7 @@ function isPassing(pipe) {
 // Move pipes
 function movePipe(pipe) {
   let pipeRight = 1500;
-  const pipeHeight = () => Math.floor(Math.random() * 200) + 230;
+  const pipeHeight = () => Math.floor(Math.random() * 200) + 100;
   pipe.passed = false; 
   setInterval(() => {
     if (!isGameOver) {

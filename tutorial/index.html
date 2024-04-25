@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/main.css" />
     <title>Tutorial FlappyBirth</title>
@@ -10,7 +16,7 @@
 
   <body>
     <header>
-      <h1></h1>
+      <h1>Flappy Birth Tutorial</h1>
       <p></p>
     </header>
     <main>
@@ -26,6 +32,7 @@
               met daarin het bestand main.css en js mapje met het bestand
               main.js gemaakt worden in de root (app folder).
             </p>
+            <img src="./assets/img/image.png" alt="folder">
           </li>
           <li>
             <h2>Tweede stap</h2>
@@ -334,7 +341,7 @@ function resetGame() {
 
 // Update points display
 function updatePointsDisplay() {
-  pointsDisplay.innerHTML = `<h1>Points: ${points}</h1>`;
+ pointsDisplay.innerHTML = ` &lt;h1&gt; Points: ${points} &lt;/h1&gt;`;
 }
 
 // Start game
@@ -347,7 +354,9 @@ gameLoop();
           </li>
           <li>
             <h2>Zesde stap</h2>
-            <p>en dan plaats je een background.png en player.png in de img folder</p>
+            <p>
+              en dan plaats je een background.png en player.png in de img folder
+            </p>
           </li>
         </ul>
       </section>
