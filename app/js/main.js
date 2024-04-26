@@ -90,7 +90,7 @@
   // Move pipes
   function movePipe(pipe) {
     let pipeRight = 1500;
-    const pipeHeight = () => Math.floor(Math.random() * 200) + 100;
+    const pipeHeight = () => Math.floor(Math.random() * 100) + 100;
     pipe.passed = false; 
     setInterval(() => {
       if (!isGameOver) {
